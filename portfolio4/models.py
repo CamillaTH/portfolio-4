@@ -24,7 +24,7 @@ class CommentLike(models.Model):
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,)
     comment = models.ForeignKey(Comment,on_delete=models.CASCADE,null=True, blank=True)
-    post = models.CharField(max_length=900, null=False, blank=False)
+    content = models.CharField(max_length=900, null=False, blank=False)
 
     def __str__(self):
         return str(self.author)
