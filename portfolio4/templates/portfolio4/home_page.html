@@ -9,5 +9,18 @@
     <h1>
         This is home template 
     </h1>
+    <table>
+        {% for post in posts %}
+        <tr>
+            <td>{{ post.author }}</td>
+            <td>{{ post.heading }}</td>
+            <td>{{ post.content }}</td>
+            <td>{{ post.comment.comment }}</td>
+        </tr>
+        {% empty %}
+        <tr><td>no posts</td></tr>
+        {% endfor %}
+    </table>
+    <a href="/create-post">create post</a>
 </body>
 </html>

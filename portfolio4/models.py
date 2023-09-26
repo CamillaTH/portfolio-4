@@ -11,7 +11,7 @@ class Comment(models.Model):
     def __str__(self):
         return str(self.author)
 
-#Model that stores the likes om a comment
+#Model that stores the likes on a comment
 class CommentLike(models.Model):
      author = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,)
      comment = models.ForeignKey(Comment,on_delete=models.CASCADE,)
@@ -24,6 +24,7 @@ class CommentLike(models.Model):
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,)
     comment = models.ForeignKey(Comment,on_delete=models.CASCADE,null=True, blank=True)
+    heading = models.CharField(max_length=40, null=False, blank=False)
     content = models.CharField(max_length=900, null=False, blank=False)
 
     def __str__(self):
