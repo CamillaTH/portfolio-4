@@ -3,8 +3,9 @@
 body {
     font-family: 'Sofia Sans Extra Condensed', sans-serif;
     font-weight: 300;
-    color: #202020;
-    font-size: 19px
+    color: #D4DCDE;
+    font-size: 19px;
+    background-color: #D4DCDE;
 }
 
 ul {
@@ -14,8 +15,33 @@ ul {
 .navbar .navbar-brand .logo-image {
     width: 80px;
   }
+
+.nav-item a {
+    color: #4B8D97;
+}
   
   .logo-image {
     width: 100px;
     height: auto;
+  }
+
+  /*---------------------------------------
+  search form               
+-----------------------------------------*/
+.search-form {
+    outline: none;
+  }
+
+.search-form button[type="submit"] {
+    border-radius:30px;
+    max-width: 80px;
+    background-color: #4B8D97;
+  }
+
+
+  /*---------------------------------------
+  subscribe form               
+-----------------------------------------*/
+  .subscribe-form button[type="submit"]{
+    background-color: #4B8D97;
   }
