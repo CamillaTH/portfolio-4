@@ -6,3 +6,16 @@ body {
     color: #202020;
     font-size: 19px
 }
+
+ul {
+    list-style-type: none;
+}
+
+.navbar .navbar-brand .logo-image {
+    width: 80px;
+  }
+  
+  .logo-image {
+    width: 100px;
+    height: auto;
+  }
