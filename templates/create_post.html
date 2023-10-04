@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %} {% block content %}
+
     <h1>
         Create a post
     </h1>
-    <form method="post" action="create-post">
+   <!-- <form method="post" action="create-post">
         {% csrf_token %}
         {{ form }}
         <div>
@@ -18,7 +12,7 @@
             </p>
         </div>
     </form>
-
+-->
    <!-- {% if user.is.authenticated %}
     <form method="post" action="create-post">
         {% csrf_token %}
@@ -45,5 +39,3 @@
     <p>plese login to post</p> 
     {% endif %}-->
 
-</body>
-</html>

@@ -1,15 +1,16 @@
 from django.shortcuts import render,  HttpResponse, redirect
 from .models import Comment, CommentLike, Post
 from .forms import PostForm
+from django.views import generic
 # Create your views here.
 
 
-def get_home_page(request):
+def get_index_page(request):
     posts = Post.objects.all()
     context = {
         'posts': posts
     }
-    return render(request, 'portfolio4/home_page.html', context)
+    return render(request, 'index.html', context)
 
 def create_post(request):
     if request.method == 'POST':
@@ -19,11 +20,11 @@ def create_post(request):
             instance.author = request.user
             instance.save()
         #Post.objects.create(author=current_user)
-        return redirect('get_home_page')
+        return redirect('get_index_page')
 
     form = PostForm()
     context = {
         'form': form
     }
 
-    return render(request, 'portfolio4/create_post.html', context)
+    return render(request, 'create_post.html', context)
