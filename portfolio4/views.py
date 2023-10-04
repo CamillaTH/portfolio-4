@@ -1,5 +1,5 @@
 from django.shortcuts import render,  HttpResponse, redirect
-from .models import Comment, CommentLike, Post
+from .models import  Post, Comment #, CommentLike,
 from .forms import PostForm
 from django.views import generic
 # Create your views here.
