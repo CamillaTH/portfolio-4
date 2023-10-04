@@ -35,6 +35,7 @@ class Comment(models.Model):
     content = models.TextField(blank=True)
     creationTime = models.DateTimeField(auto_now_add=True)
     likes = models.ManyToManyField(User, related_name='comment_likes', blank=True)
+    image = CloudinaryField('image', default='placeholder')
 
     class Meta:
         ordering = ['creationTime']
