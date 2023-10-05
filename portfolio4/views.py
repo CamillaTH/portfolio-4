@@ -1,7 +1,7 @@
 from django.shortcuts import render,  HttpResponse, redirect
-from .models import  Post, Comment #, CommentLike,
+from .models import  Post, Comment, Category
 from .forms import PostForm
-from django.views import generic
+from django.views import generic, View
 # Create your views here.
 
 
@@ -28,3 +28,18 @@ def create_post(request):
     }
 
     return render(request, 'create_post.html', context)
+
+class CategoryList(generic.ListView):
+    ''' '''
+    model = Category
+    queryset = Category.objects.order_by('name')
+    template_name = 'index.html'
+    paginate_by = 10
+
+class CategoryDetail(View):
+    ''' '''
+    def get(self, request, slug, *args, **kwargs):
+        queryset = Category.objects
+        categories = get_object_or_404(queryset, slug=slug)
+
+    pass

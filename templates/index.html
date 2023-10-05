@@ -5,9 +5,29 @@
 <div class="container-fluid">
     <div class="row">
 
-        <div class="col-12 mt-3 left">
+        <div class="col-10 mt-3 center">
+            <!-- Displaying categories -->
             <div class="row">
-
+            {% for category in CategoryList %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <h1>{{ category.name }}</h1>
+                        <div class="card-body">
+                            <div class="image-conatiner">
+                                {% if "placeholder" in category.url %}
+                                <img src=" {{ category.image.url }} " alt="category-image">
+                                {% else %}
+                                <img src="https://res.cloudinary.com/dccc1wpyc/image/upload/v1696540650/no-image-found_gbce8p.png" alt="category-image-no-image">
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% if foorloop.counter|divisibleby:5 %}
+                 </div>
+                 <div class="row">
+            {% endif %}   
+            {% endfor %}
             </div>
         </div>
     </div>
