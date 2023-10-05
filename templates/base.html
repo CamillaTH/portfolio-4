@@ -62,7 +62,22 @@
             </div>
         </div>
     </nav>
-    
+  <!--  <h1>
+        POSTS
+    </h1>
+    <table>
+        {% for post in posts %}
+        <tr>
+            <td>{{ post.author }}</td>
+            <td>{{ post.heading }}</td>
+            <td>{{ post.content }}</td>
+            <td>{{ post.image }}</td>
+            <td>{{ post.categories}}</td>
+        </tr>
+        {% empty %}
+        <tr><td>no posts</td></tr>
+        {% endfor %}
+    </table> -->
     <main class="flex-shrink-0 main-bg">
         {% block content %}
         <!-- Content Goes here -->
