@@ -8,7 +8,10 @@
         <div class="col-10 mt-3 center">
             <!-- Displaying categories -->
             <div class="row">
-            {% for category in CategoryList %}
+           <!--- {% for post in post_list %}
+                {{post.heading}}
+            {% endfor %}-->
+            {% for category in category_list %}
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <h1>{{ category.name }}</h1>
@@ -23,7 +26,7 @@
                         </div>
                     </div>
                 </div>
-            {% if foorloop.counter|divisibleby:5 %}
+                {% if forloop.counter|divisibleby:5 %}
                  </div>
                  <div class="row">
             {% endif %}   

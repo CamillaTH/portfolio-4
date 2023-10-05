@@ -4,7 +4,7 @@ from .forms import PostForm
 from django.views import generic, View
 # Create your views here.
 
-
+'''
 def get_index_page(request):
     posts = Post.objects.all()
     context = {
@@ -28,13 +28,20 @@ def create_post(request):
     }
 
     return render(request, 'create_post.html', context)
-
+'''
 class CategoryList(generic.ListView):
     ''' '''
     model = Category
     queryset = Category.objects.order_by('name')
     template_name = 'index.html'
     paginate_by = 10
+
+class PostList(generic.ListView):
+    ''' '''
+    model = Post
+    queryset = Post.objects.order_by('creation_time')
+    template_name = 'index.html'
+    paginate_by = 5
 
 class CategoryDetail(View):
     ''' '''

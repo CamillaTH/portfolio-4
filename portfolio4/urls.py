@@ -18,4 +18,5 @@ from django.urls import path
 
 urlpatterns = [
     path('', views.CategoryList.as_view(), name="home"),
+   # path("", views.PostList.as_view(), name="home"),
 ]
