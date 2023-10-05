@@ -29,13 +29,13 @@ class Post(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     image = CloudinaryField('image', default='placeholder')
     likes = models.ManyToManyField(User, related_name='post_likes', blank=True)
-    categories = models.ManyToManyField(Category)
+    categories = models.ManyToManyField(Category, blank=True)
 
     class Meta:
         ordering =['-creationTime']
 
     def __str__(self):
-        return str(self.title)
+        return str(self.heading)
 
     def amount_of_likes(self):
         return self.likes.count()
