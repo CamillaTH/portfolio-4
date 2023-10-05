@@ -11,6 +11,7 @@ class Category(models.Model):
     name = models.CharField(max_length=40)
     slug = models.SlugField()
     image = CloudinaryField('image', default='placeholder')
+    #creation_time = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering =['name']

@@ -79,7 +79,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'protfolio4_django.wsgi.application'
 
 
-# Database
+# local Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
@@ -89,6 +89,7 @@ DATABASES = {
     }
 }
 
+#production DB
 #DATABASES = {
 #     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 # }

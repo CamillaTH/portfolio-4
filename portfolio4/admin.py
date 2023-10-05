@@ -7,10 +7,12 @@ class PostAdmin(SummernoteModelAdmin):
 
     prepopulated_fields = {'slug': ('heading',)}
     summernote_field = ('content')
+    list_filter = ('approved', 'creation_time')
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
+    list_filter = ('name',)
 
 
 # Register your models here.
