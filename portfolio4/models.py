@@ -50,6 +50,7 @@ class Comment(models.Model):
     likes = models.ManyToManyField(User, related_name='comment_likes', blank=True)
     image = CloudinaryField('image', default='placeholder')
     slug = models.SlugField()
+    approved = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['creation_time']
