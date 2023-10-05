@@ -44,7 +44,7 @@ class Post(models.Model):
 class Comment(models.Model):
     '''Model that stores the comments on a post'''
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
-    #author = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE, related_name='author_comment')
+    author = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE, related_name='author_comment', default=None)
     content = models.TextField(blank=True)
     creation_time = models.DateTimeField(auto_now_add=True)
     likes = models.ManyToManyField(User, related_name='comment_likes', blank=True)
@@ -55,4 +55,4 @@ class Comment(models.Model):
         ordering = ['creation_time']
 
     def __str__(self):
-        return f"Comment {self.content} by "#{self.author.first_name} {self.author.last_name}"
+        return f"Comment {self.content} by {self.author.first_name} {self.author.last_name}"
