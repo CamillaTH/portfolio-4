@@ -48,3 +48,12 @@ ul {
   .subscribe-form button[type="submit"]{
     background-color: #4B8D97;
   }
+
+
+  /*---------------------------------------
+  Images           
+-----------------------------------------*/
+.img-display-category {
+  max-width: 160px;
+  max-height: 160px;
+}
