@@ -57,3 +57,30 @@ ul {
   max-width: 160px;
   max-height: 160px;
 }
+
+  /*---------------------------------------
+  Footer           
+-----------------------------------------*/
+.site-footer {
+  margin-top: 100px; 
+}
+
+
+  /*---------------------------------------
+  Category list           
+-----------------------------------------*/
+.list-group-container {
+  margin:15px;
+  max-width: 400px;
+}
+
+.category-header-wrapper{
+  background-color: #4B8D97;
+  border-top-left-radius: 10px;
+  border-top-right-radius:10px;
+}
+
+#category-header {
+  color: #D4DCDE;
+  margin-left:5px;
+}
