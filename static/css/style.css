@@ -100,6 +100,19 @@ ul {
 /*---------------------------------------
   Post feed           
 -----------------------------------------*/
+.posts-heading {
+  border-bottom: 2px solid #4B8D97;
+}
 .post-border {
   border-bottom: 2px solid #4B8D97;
+  padding-bottom: 30px;
+}
+
+.comment-img {
+  height: 50px;
+  width: 50px;
+}
+
+.comment-wrapper {
+  background-color: #4B8D97;
 }
