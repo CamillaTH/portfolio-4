@@ -93,3 +93,6 @@ ul {
   max-width: 50px;
   float: right;
 }
+.list-group-item:hover {
+  opacity: 50%
+}
