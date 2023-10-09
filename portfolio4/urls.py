@@ -17,6 +17,8 @@ from . import views
 from django.urls import path
 
 urlpatterns = [
-    path('', views.CategoryList.as_view(), name="category"),
-    path('', views.PostList.as_view(), name="posts_home"),
+    #path("", views.CategoryList.as_view(), name="category"),
+    #path("", views.PostList.as_view(), name="posts_home"),
+    path("", views.Home_items, name="home"),
+    
 ]

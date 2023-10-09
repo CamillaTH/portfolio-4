@@ -67,7 +67,7 @@
             <h1 id="category-header">categories</h1>   
         </div>
         <ul class="list-group">
-            {% for category in category_list %}
+            {% for category in categories %}
                 <li class="list-group-item" aria-current="true">{{category.name}}
                     <div class="category-thumbnail">
                         {% if "placeholder" in category.image.url %}
@@ -82,6 +82,23 @@
     </div>
 
     <main class="flex-shrink-0 main-bg">
+            {% for post in posts %}
+                <div class="container post-border">
+                    <div class="row">
+                        <h1 class="text-center">{{ post.heading }}</h1>
+                        <div class="col-lg text-center">
+                                {% if "placeholder" in post.featured_image.url %}
+                                <img class=""
+                                    src="https://res.cloudinary.com/dccc1wpyc/image/upload/v1696540650/no-image-found_gbce8p.png" alt="post-feed-image-no-image-found">
+                                {% else %}
+                                <img class="" src=" {{ post.image.url }}" alt="post-feed-image" >
+                                {% endif %}
+                                <!-- using | safe to remove tags--->
+                            <p>{{ post.content | safe }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         {% block content %}
         <!-- Content Goes here -->
         {% endblock content %}

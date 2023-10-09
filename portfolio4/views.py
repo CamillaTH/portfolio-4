@@ -40,8 +40,17 @@ class PostList(generic.ListView):
     ''' '''
     model = Post
     queryset = Post.objects.order_by('creation_time')
-    template_name = 'index.html'
+    template_name = 'base.html'
     paginate_by = 5
+
+def Home_items(request):
+       categories = Category.objects.all()
+       posts = Post.objects.all()
+       context = {
+              'categories': categories,
+              'posts': posts
+       }
+       return render(request, 'base.html', context)
 
 class CategoryDetail(View):
     ''' '''

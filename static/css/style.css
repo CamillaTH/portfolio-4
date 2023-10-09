@@ -96,3 +96,10 @@ ul {
 .list-group-item:hover {
   opacity: 50%
 }
+
+/*---------------------------------------
+  Post feed           
+-----------------------------------------*/
+.post-border {
+  border-bottom: 2px solid #4B8D97;
+}
