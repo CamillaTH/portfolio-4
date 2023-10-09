@@ -6,32 +6,7 @@
     <div class="row">
 
         <div class="col-10 mt-3 center">
-            <!-- Displaying categories -->
-            <div class="row">
-           <!--- {% for post in post_list %}
-                {{post.heading}}
-            {% endfor %}-->
-            {% for category in category_list %}
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <h1>{{ category.name }}</h1>
-                        <div class="card-body">
-                            <div class="image-conatiner">
-                                {% if "placeholder" in category.image.url %}
-                                <img class="img-display-category" src="https://res.cloudinary.com/dccc1wpyc/image/upload/v1696540650/no-image-found_gbce8p.png" alt="category-image-no-image">
-                                {% else %}
-                                <img class="img-display-category" src=" {{ category.image.url }} " alt="category-image">
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {% if forloop.counter|divisibleby:5 %}
-                 </div>
-                 <div class="row">
-            {% endif %}   
-            {% endfor %}
-            </div>
+           
         </div>
     </div>
 

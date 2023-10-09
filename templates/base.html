@@ -66,13 +66,19 @@
     <div class="category-header-wrapper">
         <h1 id="category-header">categories</h1>   
     </div>
-
+        
         <ul class="list-group">
-            <li class="list-group-item active" aria-current="true">An active item</li>
-            <li class="list-group-item">A second item</li>
-            <li class="list-group-item">A third item</li>
-            <li class="list-group-item">A fourth item</li>
-            <li class="list-group-item">And a fifth one</li>
+            {% for category in category_list %}
+                <li class="list-group-item" aria-current="true">{{category.name}}
+                    <div class="category-thumbnail">
+                        {% if "placeholder" in category.image.url %}
+                        <img src="https://res.cloudinary.com/dccc1wpyc/image/upload/v1696540650/no-image-found_gbce8p.png" class="img-fluid" alt="category-thumbnail-image">
+                        {% else %}
+                        <img src="{{ category.image.url }}" class="img-fluid" alt="category-thumbnail-image">
+                        {% endif %}
+                    </div>
+                </li>
+            {% endfor %}
         </ul>
     </div>
     

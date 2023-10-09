@@ -33,7 +33,7 @@ class CategoryList(generic.ListView):
     ''' '''
     model = Category
     queryset = Category.objects.order_by('name')
-    template_name = 'index.html'
+    template_name = 'base.html'
     paginate_by = 10
 
 class PostList(generic.ListView):

@@ -84,3 +84,12 @@ ul {
   color: #D4DCDE;
   margin-left:5px;
 }
+
+.list-group-item {
+  color: #D4DCDE;
+  background-color: #4B8D97;
+}
+.category-thumbnail {
+  max-width: 50px;
+  float: right;
+}
