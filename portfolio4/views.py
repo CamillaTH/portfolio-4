@@ -50,7 +50,7 @@ def Home_items(request):
               'categories': categories,
               'posts': posts
        }
-       return render(request, 'base.html', context)
+       return render(request, 'index.html', context)
 
 class CategoryDetail(View):
     ''' '''

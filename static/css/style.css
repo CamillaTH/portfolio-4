@@ -116,3 +116,16 @@ ul {
 .comment-wrapper {
   background-color: #4B8D97;
 }
+
+.post-category {
+ text-decoration: underline;
+}
+
+.fa-thumbs-up {
+  color: #478d97;
+  padding-left: 10px;
+}
+
+.post-header-container {
+  margin-top: 15px;
+}

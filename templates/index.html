@@ -1,17 +1,68 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container-fluid">ssssssssssssss
-    <div class="row">
-        <div class="col-10 mt-3 center">
-            
+<div class="container-fluid">
+    <h1 class="text-center posts-heading">Latest Posts</h1>
             {% for post in posts %}
-                <div class="row">
-                    <h1>{{ post.heading }}</h1>
-                </div>
+                {% if post.approved %}
+                    <div class="container post-border">
+                        <div class="row">
+                            <div class="post-header-container align-items-center">
+                                <h2 class="text-center">{{ post.heading }} <a href="/addLikeurlhere"><i class="fa-regular fa-thumbs-up" ></i></a>
+                                    <p class="small mb-0">{{ post.amount_of_likes }}</p>
+                                </h2>                                    
+                            </div>
+                            <div class="col-lg text-center">
+                                <h3 class="text-center" >Categories:</h3>
+                                {% for category in post.categories.all %}
+                                <p class="text-center post-category">{{ category.name }}</p>
+                                {% endfor %}
+                                <p class="text-center"> </p>
+                                    {% if "placeholder" in post.featured_image.url %}
+                                    <img class=""
+                                        src="https://res.cloudinary.com/dccc1wpyc/image/upload/v1696540650/no-image-found_gbce8p.png" alt="post-feed-image-no-image-found">
+                                    {% else %}
+                                    <img class="" src=" {{ post.image.url }}" alt="post-feed-image" >
+                                    {% endif %}
+                                <!-- using | safe to remove tags--->
+                                <p>{{ post.content | safe }}</p>
+                                <!-- comment section--->
+                                <div class="d-flex justify-content-center">
+                                    <div class="col-md-8 col-lg-6">
+                                    <div class="card shadow-0 border comment-wrapper">
+                                        <div class="card-body p-4">
+                                        <div class="form-outline mb-4">
+                                            {% if user.is_authenticated %}
+                                            <input type="text" id="addComment" class="form-control" placeholder="add comment" />
+                                            <label class="form-label" for="addComoment">+ Add comment</label>
+                                            {% endif %}
+                                        </div>
+                                
+                                        <div class="card mb-4">
+                                            <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <div class="d-flex flex-row align-items-center">
+                                                <img class="comment-img" src="https://res.cloudinary.com/dccc1wpyc/image/upload/v1696540650/no-image-found_gbce8p.png" alt="comment-user-image"/>
+                                                <p class="small mb-0 ms-2"></p>
+                                                </div>
+                                                <div class="d-flex flex-row align-items-center">
+                                                <i class="fa-regular fa-thumbs-up" style="color: #478d97;"></i>
+                                                <!-- TODO should be comment amount of likes--->
+                                                <p class="small mb-0">{{ post.amount_of_likes }}</p>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
+
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
             {% endfor %}
-        </div>
-    </div>
 
 </div>
 
