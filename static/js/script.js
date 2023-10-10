@@ -47,7 +47,6 @@ function stopTimeout3Seconds() {
 
     $("#like-post-detail,#like-comment-detail").hover(
         function () {
-         console.log("sadas")
           $(this).addClass("fa-solid");
         },
         function () {

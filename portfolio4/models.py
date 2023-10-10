@@ -46,6 +46,9 @@ class Post(models.Model):
 
     def unlike_post(self, user):
         self.likes.remove(user)
+    
+    def get_absolute_url(self):
+        return reverse('post_detail', args=[self.slug])
 
 
 class Comment(models.Model):

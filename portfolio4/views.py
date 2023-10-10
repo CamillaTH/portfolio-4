@@ -71,7 +71,7 @@ def like_post(request, slug):
     else:
         post.like_post(request.user)
 
-    return redirect('home', slug=slug)
+    return redirect('post_detail', slug=slug)
 
 def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)

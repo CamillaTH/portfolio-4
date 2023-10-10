@@ -7,7 +7,9 @@
                     <div class="container post-border">
                         <div class="row">
                                 <div class="like-container-detail text-center">
-                                    <span>Likes: <span id="like-counter">{{ post.amount_of_likes }}</span><i id="like-post-detail" class="fa-regular fa-thumbs-up" ></i></span>
+                                    <span>Likes: <span id="like-counter">{{ post.amount_of_likes }}</span>
+                                    <a href="{% url 'like_post' slug=post.slug %}"><i id="like-post-detail" class="fa-regular fa-thumbs-up" ></i></a>
+                                </span>
                                 </div>                               
                             <div class="col-lg text-center">
                                 <h3 class="text-center" >Categories:</h3>
