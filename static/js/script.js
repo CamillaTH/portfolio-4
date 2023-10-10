@@ -1,7 +1,11 @@
 $(function(){
+/*---------------------------------------
+  Functions
+-----------------------------------------*/
 
     //Script that animates the counts of likes 
-    $('#like-counter').each(function () {
+    $.initLikeAnimation = function () {
+        $('#like-counter').each(function () {
         $(this).prop('like-counter',0).animate({
             Counter: $(this).text()
         }, {
@@ -12,5 +16,24 @@ $(function(){
             }
         });
     });
+}
+
+/*---------------------------------------
+  Animations and style manipulations  
+-----------------------------------------*/
+    //add tootltip to like container
+    $(".like-container").attr('title', 'View post to like it!');
+
+    //init like animation
+    $.initLikeAnimation();
+
+
+
+
+
+
+
+
+    
 
   });
