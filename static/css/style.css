@@ -98,7 +98,7 @@ ul {
 }
 
 /*---------------------------------------
-  Post feed           
+  Post feed / detail          
 -----------------------------------------*/
 .posts-heading {
   border-bottom: 2px solid #4B8D97;
@@ -121,7 +121,7 @@ ul {
  text-decoration: underline;
 }
 
-.like-container .fa-thumbs-up {
+.like-container, .like-container-detail .fa-thumbs-up {
   color: #478d97;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -130,4 +130,8 @@ ul {
 
 .post-header-container {
   margin-top: 15px;
+}
+
+.like-container-detail i {
+  padding-left: 15px;
 }

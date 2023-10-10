@@ -2,16 +2,13 @@
 
 
 <div class="container-fluid">
-    <h1 class="text-center posts-heading">Latest Posts</h1>
+    <h1 class="text-center posts-heading">{{ post.heading }} </h1>
                 {% if post.approved %}
                     <div class="container post-border">
                         <div class="row">
-                            <div class="post-header-container align-items-center">
-                                <a href="{% url 'post_detail' slug=post.slug  %}" ><h2 class="text-center">{{ post.heading }} 
-                                </h2></a>
-                                <a href="{% url 'like_post' slug=post.slug %}"><i class="fa-regular fa-thumbs-up" ></i></a>
-                                    <p class="small mb-0">{{ post.amount_of_likes }}</p>                                    
-                            </div>
+                                <div class="like-container-detail text-center">
+                                    <span>Likes: <span id="like-counter">{{ post.amount_of_likes }}</span><i id="like-post-detail" class="fa-regular fa-thumbs-up" ></i></span>
+                                </div>                               
                             <div class="col-lg text-center">
                                 <h3 class="text-center" >Categories:</h3>
                                 {% for category in post.categories.all %}
@@ -46,7 +43,7 @@
                                                 <p class="small mb-0 ms-2"></p>
                                                 </div>
                                                 <div class="d-flex flex-row align-items-center">
-                                                <i class="fa-regular fa-thumbs-up" style="color: #478d97;"></i>
+                                                <i class="fa-regular fa-thumbs-up" id="like-comment-detail" style="color: #478d97;"></i>
                                                 <!-- TODO should be comment amount of likes--->
                                                 <p class="small mb-0">{{ post.amount_of_likes }}</p>
                                                 </div>

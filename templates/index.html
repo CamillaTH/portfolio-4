@@ -15,10 +15,12 @@
                                 <span><i class="fa-regular fa-thumbs-up" >Likes: </i><span id="like-counter">{{ post.amount_of_likes }}</span></span>
                             </div>
                             <div class="col-lg text-center">
+                                <ul>
                                 <h3 class="text-center" >Categories:</h3>
                                 {% for category in post.categories.all %}
-                                <p class="text-center post-category">{{ category.name }}</p>
+                                    <li><p class="text-center post-category">{{ category.name }}</p></li>
                                 {% endfor %}
+                                </ul>
                             </div>
                         </div>
                     </div>
