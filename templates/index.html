@@ -11,7 +11,9 @@
                                 <a href="{% url 'post_detail' slug=post.slug  %}" ><h2 class="text-center">{{ post.heading }} 
                                 </h2></a>                                 
                             </div>
-                            <i class="fa-regular fa-thumbs-up text-center" ><p class="small mb-0">{{ post.amount_of_likes }}</p>   </i>
+                            <div class="like-container text-center">
+                                <span><i class="fa-regular fa-thumbs-up" >Likes: </i><span id="like-counter">{{ post.amount_of_likes }}</span></span>
+                            </div>
                             <div class="col-lg text-center">
                                 <h3 class="text-center" >Categories:</h3>
                                 {% for category in post.categories.all %}
@@ -22,7 +24,6 @@
                     </div>
                 {% endif %}
             {% endfor %}
-
 </div>
 
 {%endblock%}

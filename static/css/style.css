@@ -121,10 +121,11 @@ ul {
  text-decoration: underline;
 }
 
-.fa-thumbs-up {
+.like-container .fa-thumbs-up {
   color: #478d97;
   padding-top: 15px;
   padding-bottom: 15px;
+  padding-right: 15px;
 }
 
 .post-header-container {
