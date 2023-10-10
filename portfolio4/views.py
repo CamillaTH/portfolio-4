@@ -1,7 +1,9 @@
-from django.shortcuts import render,  HttpResponse, redirect
+from django.shortcuts import render,  HttpResponse, redirect, get_object_or_404
 from .models import  Post, Comment, Category
 from .forms import PostForm
 from django.views import generic, View
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 
 '''
@@ -59,3 +61,19 @@ class CategoryDetail(View):
         categories = get_object_or_404(queryset, slug=slug)
 
     pass
+
+@login_required
+def like_post(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+    
+    if request.user in post.likes.all():
+        post.unlike_post(request.user)
+    else:
+        post.like_post(request.user)
+
+    return redirect('home', slug=slug)
+
+def post_detail(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+    
+    return render(request, 'post_detail.html', {'post': post})

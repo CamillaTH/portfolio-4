@@ -41,6 +41,13 @@ class Post(models.Model):
     def amount_of_likes(self):
         return self.likes.count()
 
+    def like_post(self, user):
+        self.likes.add(user)
+
+    def unlike_post(self, user):
+        self.likes.remove(user)
+
+
 class Comment(models.Model):
     '''Model that stores the comments on a post'''
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
