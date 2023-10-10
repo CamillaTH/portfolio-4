@@ -38,19 +38,23 @@
                                         </div>
                                 
                                         <div class="card mb-4">
-                                            <div class="card-body">
-                                            <div class="d-flex justify-content-between">
-                                                <div class="d-flex flex-row align-items-center">
-                                                <img class="comment-img" src="https://res.cloudinary.com/dccc1wpyc/image/upload/v1696540650/no-image-found_gbce8p.png" alt="comment-user-image"/>
-                                                <p class="small mb-0 ms-2"></p>
-                                                </div>
-                                                <div class="d-flex flex-row align-items-center">
-                                                <i class="fa-regular fa-thumbs-up" id="like-comment-detail" style="color: #478d97;"></i>
-                                                <!-- TODO should be comment amount of likes--->
-                                                <p class="small mb-0">{{ post.amount_of_likes }}</p>
-                                                </div>
-                                            </div>
-                                            </div>
+                                            {% for comment in comments %}
+                                                {% if comment.approved %}
+                                                    <div class="card-body {% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">
+                                                        <div class="d-flex justify-content-between">
+                                                            <div class="d-flex flex-row align-items-center">
+                                                                <img class="comment-img" src="https://res.cloudinary.com/dccc1wpyc/image/upload/v1696540650/no-image-found_gbce8p.png" alt="comment-user-image"/>
+                                                                <p class="small mb-0 ms-2"></p>
+                                                            </div>
+                                                            <div class="d-flex flex-row align-items-center">
+                                                                <i class="fa-regular fa-thumbs-up" id="like-comment-detail" style="color: #478d97;"></i>
+                                                                <!-- TODO should be comment amount of likes--->
+                                                                <p class="small mb-0">{{ post.amount_of_likes }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                            {% endfor %}
                                         </div>
 
                                         </div>

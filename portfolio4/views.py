@@ -75,5 +75,6 @@ def like_post(request, slug):
 
 def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
+    comments = post.comments.filter(approved=True).order_by("-creation_time")
     
-    return render(request, 'post_detail.html', {'post': post})
+    return render(request, 'post_detail.html', {'post': post, 'comments': comments})

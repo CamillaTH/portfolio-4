@@ -135,3 +135,13 @@ ul {
 .like-container-detail i {
   padding-left: 15px;
 }
+
+
+/*---------------------------------------
+  Comments       
+-----------------------------------------*/
+
+/*Adds background color to every even objekt in comments section. */
+.card-body .even {
+  background-color: #D4DCDE;
+}
