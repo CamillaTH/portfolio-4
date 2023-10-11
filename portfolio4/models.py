@@ -67,3 +67,15 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment {self.content} by {self.author.first_name} {self.author.last_name}"
+
+    def amount_of_likes(self):
+        return self.likes.count()
+
+    def like_comment(self, user):
+        self.likes.add(user)
+
+    def unlike_comment(self, user):
+        self.likes.remove(user)
+    
+    def get_absolute_url(self):
+        return reverse('post_detail', args=[self.slug])

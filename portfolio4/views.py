@@ -78,3 +78,15 @@ def post_detail(request, slug):
     comments = post.comments.filter(approved=True).order_by("-creation_time")
     
     return render(request, 'post_detail.html', {'post': post, 'comments': comments})
+
+
+@login_required
+def like_comment(request, slug):
+    comment = get_object_or_404(Comment, slug=slug)
+    
+    if request.user in comment.likes.all():
+        comment.unlike_comment(request.user)
+    else:
+        comment.like_comment(request.user)
+
+    return redirect('post_detail', slug=comment.post.slug)
