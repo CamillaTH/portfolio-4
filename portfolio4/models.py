@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, AbstractUser
 from cloudinary.models import CloudinaryField
 from django.utils import timezone
 import datetime
@@ -21,7 +21,6 @@ class Category(models.Model):
 class Post(models.Model):
     '''Model that stores the post'''
     author = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE, related_name='author_posts')
-    #comment = models.ForeignKey(Comment,on_delete=models.CASCADE,null=True, blank=True)
     heading = models.CharField(max_length=150, unique=True)
     content = models.TextField(blank=True)
     creation_time = models.DateTimeField(auto_now_add=True)
@@ -79,3 +78,12 @@ class Comment(models.Model):
     
     def get_absolute_url(self):
         return reverse('post_detail', args=[self.slug])
+
+
+class ExtendedUser(models.Model):
+    '''Model that have one2one rel with user with custom fields'''
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    profileImage = CloudinaryField('image', default='placeholder')
+
+    def __str___(self):
+        return self.user.username

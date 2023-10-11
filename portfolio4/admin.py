@@ -1,5 +1,7 @@
 from django.contrib import admin
-from .models import Comment, Post, Category
+from .models import Comment, Post, Category, ExtendedUser
+from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth.models import User
 from django_summernote.admin import SummernoteModelAdmin
 
 # Register your models here.
@@ -38,3 +40,14 @@ class CommentAdmin(admin.ModelAdmin):
     
     def approve_Comments(self, request, queryset):
         queryset.update(approved=True)
+
+class ExtendedUserInline(admin.StackedInline):
+    model = ExtendedUser 
+    can_delete = False
+    verbose_name_plural = 'Extended users'
+
+class customUserAdmin(UserAdmin):
+    inlines = (ExtendedUserInline, )
+
+admin.site.unregister(User)
+admin.site.register(User, customUserAdmin)
