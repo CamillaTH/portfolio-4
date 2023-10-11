@@ -87,3 +87,6 @@ class ExtendedUser(models.Model):
 
     def __str___(self):
         return self.user.username
+
+    def get_profile_image(self):
+        return self.profileImage.url

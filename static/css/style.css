@@ -114,9 +114,9 @@ ul {
   padding-bottom: 30px;
 }
 
-.comment-img {
-  height: 50px;
-  width: 50px;
+.comment-profile-img {
+  height: 100px;
+  width: 100px;
 }
 
 .comment-wrapper {
@@ -156,4 +156,8 @@ ul {
 }
 .comment-form button{
   width: 100%;
+}
+.comment-text-content {
+  border-right: 1px solid #4B8D97;
+  border-left: 1px solid #4B8D97;
 }

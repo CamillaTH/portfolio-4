@@ -21,10 +21,9 @@
                                     <img class=""
                                         src="https://res.cloudinary.com/dccc1wpyc/image/upload/v1696540650/no-image-found_gbce8p.png" alt="post-feed-image-no-image-found">
                                     {% else %}
-                                    <img class="" src=" {{ post.image.url }}" alt="post-feed-image" >
+                                    <img src=" {{ post.image.url }}" alt="post-feed-image" >
                                     {% endif %}
                                 <!-- using | safe to remove tags--->
-                                <p>{{ post.content | safe }}</p>
                                 <!-- comment section--->
                                 <div class="d-flex justify-content-center">
                                     <div class="col-md-8 col-lg-6">
@@ -33,7 +32,6 @@
                                         <div class="form-outline mb-4">
                                             {% if user.is_authenticated %}
                                                 <form class="comment-form" method="post">
-                                                    <input type="text" id="addComment" class="form-control" placeholder="add comment" />
                                                     {% csrf_token %}
                                                     {{ comment_form | crispy }}
                                                     <button type="submit">Add Comment</button>
@@ -46,11 +44,17 @@
                                         <div class="card mb-4">
                                             {% for comment in comments %}
                                                 {% if comment.approved %}
+                                                    <!-- make every second comment diffrent bg color to diverse comments--->
                                                     <div class="card-body {% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">
                                                         <div class="d-flex justify-content-between">
                                                             <div class="d-flex flex-row align-items-center">
-                                                                <img class="comment-img" src="https://res.cloudinary.com/dccc1wpyc/image/upload/v1696540650/no-image-found_gbce8p.png" alt="comment-user-image"/>
-                                                                <p class="small mb-0 ms-2">{{ comment.content }}</p>
+                                                               <label for="">By: {{ comment.author }}</label>
+                                                                {% if "placeholder" in comment.author.extendeduser.profileImage.url %}
+                                                                    <img class="comment-profile-img" src="https://res.cloudinary.com/dccc1wpyc/image/upload/v1696540650/no-image-found_gbce8p.png" alt="comment-user-image"/>
+                                                                {% else %}
+                                                                    <img class="comment-profile-img" src="{{ comment.author.extendeduser.profileImage.url}}" alt="comment-user-profile-image" >
+                                                                {% endif %}
+                                                                    <p class="small mb-0 ms-2 comment-text-content">{{ comment.content }}</p>
                                                             </div>
                                                             <div class="d-flex flex-row align-items-center">
                                                                 <a href="{% url 'like_comment' slug=comment.slug %}"><i class="fa-regular fa-thumbs-up" id="like-comment-detail" style="color: #478d97;"></i></a>
