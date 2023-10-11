@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block content %}
-
+{% load crispy_forms_tags %}
 
 <div class="container-fluid">
     <h1 class="text-center posts-heading">{{ post.heading }} </h1>
@@ -32,8 +32,14 @@
                                         <div class="card-body p-4">
                                         <div class="form-outline mb-4">
                                             {% if user.is_authenticated %}
-                                            <input type="text" id="addComment" class="form-control" placeholder="add comment" />
-                                            <label class="form-label" for="addComoment">+ Add comment</label>
+                                                <form class="comment-form" method="post">
+                                                    <input type="text" id="addComment" class="form-control" placeholder="add comment" />
+                                                    {% csrf_token %}
+                                                    {{ comment_form | crispy }}
+                                                    <button type="submit">Add Comment</button>
+                                                </form>
+                                            {% else %}
+                                                <label class="form-label" >You need to be logged in to add comments</label>
                                             {% endif %}
                                         </div>
                                 
@@ -48,7 +54,7 @@
                                                             </div>
                                                             <div class="d-flex flex-row align-items-center">
                                                                 <a href="{% url 'like_comment' slug=comment.slug %}"><i class="fa-regular fa-thumbs-up" id="like-comment-detail" style="color: #478d97;"></i></a>
-                                                                <!-- TODO should be comment amount of likes--->
+                                                                <!-- Shows amount of likes on a comment-->
                                                                 <p class="small mb-0">{{ comment.amount_of_likes }}</p>
                                                             </div>
                                                         </div>

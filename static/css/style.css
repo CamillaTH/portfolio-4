@@ -11,6 +11,12 @@ footer {
   font-size: 1.2rem;
 }
 
+button {
+  border-radius: 15px;
+  /*background-color: #D4DCDE;*/
+  color: #4B8D97;
+}
+
 ul {
     list-style-type: none;
 }
@@ -144,4 +150,10 @@ ul {
 /*Adds background color to every even objekt in comments section. */
 .card-body .even {
   background-color: #D4DCDE;
+}
+#addComment {
+  width: 80%;
+}
+.comment-form button{
+  width: 100%;
 }

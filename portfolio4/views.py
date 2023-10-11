@@ -1,6 +1,6 @@
 from django.shortcuts import render,  HttpResponse, redirect, get_object_or_404
 from .models import  Post, Comment, Category
-from .forms import PostForm
+from .forms import PostForm, CommentForm
 from django.views import generic, View
 from django.contrib.auth.decorators import login_required
 
@@ -77,7 +77,19 @@ def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
     comments = post.comments.filter(approved=True).order_by("-creation_time")
     
-    return render(request, 'post_detail.html', {'post': post, 'comments': comments})
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.post = post
+            new_comment.author = request.user
+            new_comment.save()
+            return redirect('post_detail', slug=slug)
+    else:
+        comment_form = CommentForm()
+
+        
+    return render(request, 'post_detail.html', {'post': post, 'comments': comments, 'comment_form': CommentForm()})
 
 
 @login_required
