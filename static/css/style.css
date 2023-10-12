@@ -195,3 +195,15 @@ ul {
     visibility: hidden;
   }
 }
+
+/*---------------------------------------
+  Register       
+-----------------------------------------*/
+.register {
+  background-color: #478d97;
+  border-radius: 15px;
+}
+
+#signup_form input {
+  border-radius: 10px;
+}

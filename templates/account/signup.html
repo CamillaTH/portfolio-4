@@ -7,18 +7,24 @@
 {% block content %}
 
 <div class="container justify-content-center">
-  <h1>{% trans "Sign Up" %}</h1>
-<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+  <div class="text-center">
+    <h1>{% trans "Sign Up" %}</h1>
+    <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+ </div>
   <div class="row">
-    <div class="col-lg">
-      <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        {% if redirect_field_value %}
-        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-        {% endif %}
-        <button type="submit">{% trans "Sign Up" %} &raquo;</button>
-      </form>
+    <div class="col-md-8 mt-3 offset-md-2">
+      <div class="card card-4 register">   
+        <div class="card-body">
+          <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">        
+            {% csrf_token %}
+            {{ form.as_p }}
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+            <button type="submit">{% trans "Sign Up" %} &raquo;</button>
+          </form>
+        </div>
+     </div>
     </div>
   </div>
 </div>
