@@ -179,9 +179,6 @@ ul {
   margin-top: 10px;
 }
 
-.post-user > p {
-}
-
 /* blinking animation  */
 .blink {
   animation: blinking-animation 0.8s steps(2, start) infinite;
