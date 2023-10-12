@@ -41,17 +41,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.sites',
+    'cloudinary_storage',
+    'django.contrib.staticfiles',
+    'cloudinary',
+    'crispy_forms',
+    'crispy_bootstrap5',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'django_summernote',
-    'cloudinary_storage',
-    'django.contrib.staticfiles',
-    'cloudinary',
-    'portfolio4',
-    'crispy_forms',
-    'crispy_bootstrap5',
     'bootstrap5',
+    'portfolio4',   
 ]
 
 
@@ -60,8 +60,10 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 SITE_ID = 1
 
-LOGIN_REDIRECT_ULR = '/'
-LOGOUT_REDIRECT_ULR = '/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
