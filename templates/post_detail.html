@@ -23,6 +23,7 @@
                                     {% else %}
                                     <img src=" {{ post.image.url }}" alt="post-feed-image" >
                                     {% endif %}
+                                    <p>{{ post.content | safe }}</p>
                                 <!-- using | safe to remove tags--->
                                 <!-- comment section--->
                                 <div class="d-flex justify-content-center">

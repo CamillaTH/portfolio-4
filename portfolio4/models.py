@@ -3,7 +3,9 @@ from django.conf import settings
 from django.contrib.auth.models import User, AbstractUser
 from cloudinary.models import CloudinaryField
 from django.utils import timezone
+from django.utils.text import slugify
 import datetime
+from datetime import date
 
 # Create your models here.
 class Category(models.Model):
@@ -58,11 +60,18 @@ class Comment(models.Model):
     creation_time = models.DateTimeField(auto_now_add=True)
     likes = models.ManyToManyField(User, related_name='comment_likes', blank=True)
     image = CloudinaryField('image', default='placeholder')
-    slug = models.SlugField()
+    slug = models.SlugField(max_length=200, unique=True)
     approved = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['creation_time']
+    
+    #override slug to make the slug unuiqe to be able to like mulitple comments
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(f'{self.post}-{datetime.datetime.now()}')
+
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f"Comment {self.content} by {self.author.first_name} {self.author.last_name}"
