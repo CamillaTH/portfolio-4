@@ -23,4 +23,5 @@ urlpatterns = [
     #path('create-post', create_post, name='create_post'),
     path('', include('portfolio4.urls'), name='portfolio4_urls'),
     path('summernote/', include('django_summernote.urls')),
+    path('accounts/', include('allauth.urls')),
 ]
