@@ -2,10 +2,12 @@
 {% load crispy_forms_tags %}
 
 <div class="container-fluid">
-    <h1 class="text-center posts-heading">{{ post.heading }} </h1>
                 {% if post.approved %}
                     <div class="container post-border">
                         <div class="row">
+                             <!-- Post section--->
+                                <h1 class="text-center posts-heading">{{ post.heading }} </h1>
+                                <h2 class="text-center post-user">By user: {{ post.author }}</h2>
                                 <div class="like-container-detail text-center">
                                     <span>Likes: <span id="like-counter">{{ post.amount_of_likes }}</span>
                                     <a href="{% url 'like_post' slug=post.slug %}"><i id="like-post-detail" class="fa-regular fa-thumbs-up" ></i></a>
@@ -25,6 +27,8 @@
                                     {% endif %}
                                     <p>{{ post.content | safe }}</p>
                                 <!-- using | safe to remove tags--->
+                                
+                                
                                 <!-- comment section--->
                                 <div class="d-flex justify-content-center">
                                     <div class="col-md-8 col-lg-6">
@@ -67,7 +71,6 @@
                                                     </div>
                                             {% endfor %}
                                         </div>
-
                                         </div>
                                     </div>
                                     </div>

@@ -166,6 +166,7 @@ ul {
 }
 .textarea.form-control {
   font-size: 1.7rem;
+  max-height: 200px;
 }
 .card-body .comment {
   color: #4B8D97;
@@ -176,6 +177,9 @@ ul {
   color: #4B8D97;
   border-radius: 15px;
   margin-top: 10px;
+}
+
+.post-user > p {
 }
 
 /* blinking animation  */
