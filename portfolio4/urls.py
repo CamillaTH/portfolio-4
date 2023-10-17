@@ -20,8 +20,6 @@ from django.conf.urls.static import static
 from portfolio4.views import handler404
 
 urlpatterns = [
-    #path("", views.CategoryList.as_view(), name="category"),
-    #path("", views.PostList.as_view(), name="posts_home"),
     path("", views.Home_items, name="home"),
     path('<slug:slug>/', views.post_detail, name='post_detail'),
     path('createpost', views.create_post, name='create_post'),

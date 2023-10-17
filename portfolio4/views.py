@@ -90,11 +90,12 @@ def post_detail(request, slug):
     comments = post.comments.filter(approved=True).order_by("-creation_time")
     
     if request.method == 'POST':
-        comment_form = CommentForm(request.POST)
+        comment_form = CommentForm(request.POST, request.FILES)
         if comment_form.is_valid():
             new_comment = comment_form.save(commit=False)
             new_comment.post = post
             new_comment.author = request.user
+            #new_comment.image = request.FILES['image']
             new_comment.save()
             return redirect('post_detail', slug=slug)
     else:

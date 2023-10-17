@@ -97,3 +97,12 @@ class LikeCommentViewTest(TestCase):
 
         # Check that the post is not liked
         self.assertFalse(self.post.likes.filter(id=self.user.id).exists())
+
+class CreatePostViewTest(TestCase):
+    '''test for create post'''
+
+    def test_create_post_view_uses_correct_template(self):
+        response = self.client.get(reverse('create_post')) 
+        self.assertTemplateUsed(response, 'create_post.html')
+
+    #Todo create more tests for create post
