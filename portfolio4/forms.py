@@ -1,5 +1,6 @@
 from django import forms
-from .models import Post, Comment
+from .models import Post, Comment, ExtendedUser
+from django.contrib.auth.forms import UserChangeForm
 
 
 class PostForm(forms.ModelForm):
@@ -13,3 +14,6 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ['content', 'image']
+
+class ProfilePictureForm(forms.Form):
+    profile_image = forms.ImageField(label='Profile Image', required=False)

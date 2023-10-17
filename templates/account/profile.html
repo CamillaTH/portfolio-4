@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container justify-content-center profile-page">
+    <div class="text-center">
+   </div>
+   {% if user.is_authenticated %}
+    <div class="row">
+      <div class="col-md-8 mt-3 offset-md-2">
+        <div class="card card-4 register-page">  
+            <h1 class="text-center profile-header" >Profile</h1> 
+          <div class="card-body">
+            <div class="row">
+                <h2 class="text-center">Welcome:</h2>
+                <p class="thick-font text-center">{{ user.username }}</p>
+                <div class="image-wrapper">
+                    {% if "placeholder" in user.extendeduser.profileImage.url %}
+                        <img id="profile_image" src="https://res.cloudinary.com/dccc1wpyc/image/upload/v1696540650/no-image-found_gbce8p.png" alt="user-profile-image"/>
+                    {% else %}
+                        <img id="profile_image" src="{{ user.extendeduser.profileImage.url}}" alt="user-profile-image" >
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <h3>Profile</h3>
+                    {{ user_form.as_u }}
+                    <button type="submit">Update Password</button>
+                </form>
+            </div>
+            <div class="row">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <h3>Change Password</h3>
+                    {{ password_form.as_p }}
+                    <button type="submit">Update Password</button>
+                </form>
+            </div>
+          </div>
+       </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+
+{% endblock content %}

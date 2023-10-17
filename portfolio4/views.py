@@ -1,9 +1,13 @@
 from django.shortcuts import render,  HttpResponse, redirect, get_object_or_404
-from .models import  Post, Comment, Category
+from .models import  Post, Comment, Category, ExtendedUser
 from .forms import PostForm, CommentForm
 from django.views import generic, View
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+from allauth.account.forms import ChangePasswordForm, SetPasswordForm
+from django.contrib.auth import update_session_auth_hash
+from django.contrib import messages
+from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 
 # Create your views here.
 
@@ -108,3 +112,35 @@ def handler404(request, exception):
     '''handles 404 page'''
 
     return render(request, '404.html', status=404)
+
+
+@login_required
+def profile(request):
+    try:
+        extended_user = request.user.extendeduser  # Retrieve or create ExtendedUser
+    except ExtendedUser.DoesNotExist:
+        extended_user = ExtendedUser(user=request.user)
+        extended_user.save()
+
+    if request.method == 'POST':
+        user_form = UserChangeForm(request.POST, instance=request.user)
+        password_form = PasswordChangeForm(request.user, request.POST)
+
+        if user_form.is_valid() and password_form.is_valid():
+            user_form.save()
+            password_form.save()
+            update_session_auth_hash(request, request.user)  # Update session to prevent log out
+            messages.success(request, 'Your profile has been updated.')
+            return redirect('profile')
+        else:
+            messages.error(request, 'Please correct the error(s) below.')
+
+    else:
+        user_form = UserChangeForm(instance=request.user)
+        password_form = PasswordChangeForm(request.user)
+
+    return render(request, 'account/profile.html', {
+        'user_form': user_form,
+        'password_form': password_form,
+        'profile_image': extended_user.profileImage.url
+    })

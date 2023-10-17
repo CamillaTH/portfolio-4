@@ -36,6 +36,9 @@ ul {
     width: 100px;
     height: auto;
   }
+.thick-font {
+    font-weight: bold;
+  }
 
   /*---------------------------------------
   search form               
@@ -240,3 +243,27 @@ ul {
 .signout-page h1 {
   color:#D4DCDE
 }
+
+/*---------------------------------------
+  Profile page      
+-----------------------------------------*/
+.profile-page button {
+  width: 370px;
+}
+.profile-page  label, p {
+  color:#D4DCDE
+}
+#profile_image {
+  max-width: 200px;
+}
+.image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; 
+  margin-bottom: 25px;
+}
+.profile-header {
+  color:#D4DCDE;
+}
+

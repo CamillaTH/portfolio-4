@@ -26,6 +26,7 @@ urlpatterns = [
     path('<slug:slug>/', views.post_detail, name='post_detail'),
     path('post/<slug:slug>/like/', views.like_post, name='like_post'),
     path('comment/<slug:slug>/like/', views.like_comment, name='like_comment'),
+    path('profile', views.profile, name='profile'),
     
 ]
 
