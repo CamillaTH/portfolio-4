@@ -152,7 +152,21 @@ ul {
 
 .post-header-container {
   margin-top: 15px;
+  background-color: #478d97;
+  border-radius: 10px;
 }
+.post-header-container a{
+  color:#D4DCDE;
+}
+.post-header-container:hover {
+  background-color: #D4DCDE;
+}
+.post-header-container a:hover{
+  color:#478d97;
+}
+
+
+
 
 .like-container-detail i {
   padding-left: 15px;
