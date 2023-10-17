@@ -139,13 +139,29 @@ lighthouse score can definitely be imporoved.
 
 ![alt text](static/images/readme/luna_readme_responsive.png)
 
+### Validator Testing
+
+ HTML:
+   No errors were found when code was injected into the official (https://validator.w3.org/)
+* CSS:
+   No errors were found when code was injected into the official https://jigsaw.w3.org/css-validator
+* JS validation: Javascript validation using https://jshint.com (alot of missing semicolons where detected and fixed)
+* JS format: Fixed formating of Js code using https://beautifier.io
+
+
 ### Bugs
 
 Bugs that are confimred and not fixed:
 * When creating a post when adding category to the post it is not saved..(admin have to add category to a post from admin panel)
 * Instead of showing category names when creating a post "Category objecy [0], Category objecy [1] etc" is shown instead.
 * When adding a image to a comment the image is not saved (a todo is in the code for that (get strange errors when i tried to fix it))
+* custom 404 page does not render, have done accrodring to the pattern need to be investigated more..
 
+
+### Overal thoughts 
+Im not super happy with the design but i had to focus on the functions first handed to have time to finish the project on time.
+But the overall design and contrasts of the colors can be imporved ALOT!
+ 
 
 ## Credits 
 
