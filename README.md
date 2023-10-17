@@ -131,6 +131,8 @@ Profile page where user can add/change thier profile picture. The form is using 
 ### Lighthouse score 
 ![alt text](static/images/readme/luna_readme_lighthousescore.png)
 
+lighthouse score can definitely be imporoved. 
+
 ### Responsvie testing 
     Of some reason it does not work with Heroku apps and responsive checker (i tested different ones just got a blank screen...)
 ![alt text](static/images/readme/luna_readme_responsive_no_work.png)
