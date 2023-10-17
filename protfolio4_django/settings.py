@@ -109,7 +109,7 @@ WSGI_APPLICATION = 'protfolio4_django.wsgi.application'
 #    }
 #}
 
-production DB
+#production DB
 DATABASES = {
      'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
  }

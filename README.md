@@ -4,7 +4,9 @@
 
 ## Deployment
 
-site is live at : https://camillath.github.io/portfolio-2/
+site is live at : https://portfolio-4-1ef2f7260848.herokuapp.com/
+postgresql-solid-43325
+
 
 ## Features 
 
@@ -58,13 +60,22 @@ Profile page where user can add/change thier profile picture. The form is using 
 
 ![alt text](static/images/readme/luna_readme_profilepage.png)
 
-postgresql-solid-43325
 
 
-## Credits
+## Testing
+ 
+ * To run python test in terminal write: "python manage.py test"
+ 
+__Python test results__
+![alt text](static/images/readme/luna_readme_pythontestresults.png)
+
 
 Inspiration taken from code insitutes rock papper scissors game made by code insitute.
 
 * For blinking effect this guide was used
 https://www.w3docs.com/snippets/css/how-to-create-a-blinking-effect-with-css3-animations.html
 * For to convert an png image to favicon (.ico format) 
+https://cloudconvert.com/ico-converter tool was used.
+* to create the logo i used adobe https://www.adobe.com/express/create/logo
+* To make images transparent https://www.remove.bg/ tool was used
+
