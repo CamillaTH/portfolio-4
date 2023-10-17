@@ -86,6 +86,7 @@ def like_post(request, slug):
     return redirect('post_detail', slug=slug)
 
 def post_detail(request, slug):
+    '''view for post detail and comment form'''
     post = get_object_or_404(Post, slug=slug)
     comments = post.comments.filter(approved=True).order_by("-creation_time")
     
@@ -95,6 +96,7 @@ def post_detail(request, slug):
             new_comment = comment_form.save(commit=False)
             new_comment.post = post
             new_comment.author = request.user
+            #Todo fix bug 
             #new_comment.image = request.FILES['image']
             new_comment.save()
             return redirect('post_detail', slug=slug)
