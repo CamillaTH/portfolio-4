@@ -44,6 +44,9 @@ And comment out
 Agile development was used during development of this site project board can be found :
 * https://github.com/users/CamillaTH/projects/4/views/1
 
+![alt text](static/images/readme/luna_readme_githubproject.png)
+
+
 ## Frameworks
 
 * This application is using the python frameWork Django v3.2.21
