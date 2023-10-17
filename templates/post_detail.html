@@ -23,7 +23,7 @@
                                     <img class=""
                                         src="https://res.cloudinary.com/dccc1wpyc/image/upload/v1696540650/no-image-found_gbce8p.png" alt="post-feed-image-no-image-found">
                                     {% else %}
-                                    <img src=" {{ post.image.url }}" alt="post-feed-image" >
+                                    <img src="{{ post.image.url }}" id="post_detail_img" alt="post-detail-image" >
                                     {% endif %}
                                     <p>{{ post.content | safe }}</p>
                                 <!-- using | safe to remove tags--->
