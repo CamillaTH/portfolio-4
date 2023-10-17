@@ -4,8 +4,6 @@
 {% block content %}
 
 <div class="container justify-content-center profile-page">
-    <div class="text-center">
-   </div>
    {% if user.is_authenticated %}
     <div class="row">
       <div class="col-md-8 mt-3 offset-md-2">
@@ -41,9 +39,10 @@
           </div>
        </div>
       </div>
+      {% endif %}
     </div>
   </div>
-  {% endif %}
+  
 
 
 {% endblock content %}

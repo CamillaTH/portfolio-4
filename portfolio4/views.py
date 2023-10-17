@@ -11,31 +11,21 @@ from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 
 # Create your views here.
 
-'''
-def get_index_page(request):
-    posts = Post.objects.all()
-    context = {
-        'posts': posts
-    }
-    return render(request, 'index.html', context)
 
 def create_post(request):
+    post_form = PostForm()  # Define the form outside the if block
+
     if request.method == 'POST':
-        form = PostForm(request.POST)
-        if form.is_valid():
-            instance = form.save(commit=False)
+        post_form = PostForm(request.POST)
+        if post_form.is_valid(): 
+            instance = post_form.save(commit=False)
             instance.author = request.user
             instance.save()
-        #Post.objects.create(author=current_user)
-        return redirect('get_index_page')
+            return redirect('createpost')
 
-    form = PostForm()
-    context = {
-        'form': form
-    }
+    return render(request, 'create_post.html', {'post_form': post_form})
 
-    return render(request, 'create_post.html', context)
-'''
+
 class CategoryList(generic.ListView):
     ''' '''
     model = Category
