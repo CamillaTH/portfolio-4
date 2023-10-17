@@ -128,6 +128,14 @@ Profile page where user can add/change thier profile picture. The form is using 
 
 ![alt text](static/images/readme/luna_readme_responsive.png)
 
+### Bugs
+
+Bugs that are confimred and not fixed:
+* When creating a post when adding category to the post it is not saved..(admin have to add category to a post from admin panel)
+* Instead of showing category names when creating a post "Category objecy [0], Category objecy [1] etc" is shown instead.
+* When adding a image to a comment the image is not saved (a todo is in the code for that (get strange errors when i tried to fix it))
+
+
 ## Credits 
 
 Inspiration taken from code insitutes rock papper scissors game made by code insitute.
