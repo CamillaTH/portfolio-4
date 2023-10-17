@@ -1,6 +1,6 @@
 from django.shortcuts import render,  HttpResponse, redirect, get_object_or_404
 from .models import  Post, Comment, Category, ExtendedUser
-from .forms import PostForm, CommentForm
+from .forms import PostForm, CommentForm, ProfilePictureForm
 from django.views import generic, View
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
@@ -116,31 +116,34 @@ def handler404(request, exception):
 
 @login_required
 def profile(request):
+    '''view for profile page with it's forms '''
     try:
-        extended_user = request.user.extendeduser  # Retrieve or create ExtendedUser
+        extended_user = request.user.extendeduser  # get or create ExtendedUser
     except ExtendedUser.DoesNotExist:
         extended_user = ExtendedUser(user=request.user)
         extended_user.save()
-
+    #profile image form
     if request.method == 'POST':
-        user_form = UserChangeForm(request.POST, instance=request.user)
-        password_form = PasswordChangeForm(request.user, request.POST)
+        profile_picture_form = ProfilePictureForm(request.POST, request.FILES)
 
-        if user_form.is_valid() and password_form.is_valid():
-            user_form.save()
-            password_form.save()
-            update_session_auth_hash(request, request.user)  # Update session to prevent log out
-            messages.success(request, 'Your profile has been updated.')
+        if profile_picture_form.is_valid():
+            extended_user.profileImage = profile_picture_form.cleaned_data['profileImage']
+            extended_user.save()
             return redirect('profile')
-        else:
-            messages.error(request, 'Please correct the error(s) below.')
 
     else:
-        user_form = UserChangeForm(instance=request.user)
-        password_form = PasswordChangeForm(request.user)
+        profile_picture_form = ProfilePictureForm()
 
-    return render(request, 'account/profile.html', {
-        'user_form': user_form,
-        'password_form': password_form,
-        'profile_image': extended_user.profileImage.url
-    })
+    # user change form
+    password_change_form = PasswordChangeForm(request.user)
+
+    if request.method == 'POST':
+        password_change_form = PasswordChangeForm(request.user, request.POST)
+        if password_change_form.is_valid():
+            user = password_change_form.save()
+            update_session_auth_hash(request, user)  # Update session to prevent logout
+            messages.success(request, 'Your password was successfully updated!')
+            return redirect('account:profile')
+
+    return render(request, 'account/profile.html', {'password_change_form': password_change_form,
+                                                     'profile_picture_form': profile_picture_form,})

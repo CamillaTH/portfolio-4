@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 
@@ -18,28 +19,25 @@
                     {% if "placeholder" in user.extendeduser.profileImage.url %}
                         <img id="profile_image" src="https://res.cloudinary.com/dccc1wpyc/image/upload/v1696540650/no-image-found_gbce8p.png" alt="user-profile-image"/>
                     {% else %}
-                        <img id="profile_image" src="{{ user.extendeduser.profileImage.url}}" alt="user-profile-image" >
+                        <img id="profile_image" src="{{ user.extendeduser.profileImage.url }}" alt="user-profile-image" >
                     {% endif %}
                 </div>
             </div>
             <div class="row">
-                <form method="post">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <h3>Profile</h3>
-                    {{ user_form.as_u }}
-                    <button type="submit">Update Password</button>
+                <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ profile_picture_form | crispy }}
+                    <h3>Change Profile Picture</h3>
+                    <button type="submit">Upload</button>
                 </form>
             </div>
-            <div class="row">
-                <form method="post">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <h3>Change Password</h3>
-                    {{ password_form.as_p }}
-                    <button type="submit">Update Password</button>
-                </form>
-            </div>
+           <!-- <form method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              {{ password_change_form | crispy }}
+             <h3>Change Profile Picture</h3>
+            <button type="submit">Change Password</button>
+            </form>
+            </div>-->
           </div>
        </div>
       </div>

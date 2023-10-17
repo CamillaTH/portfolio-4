@@ -15,5 +15,9 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ['content', 'image']
 
-class ProfilePictureForm(forms.Form):
-    profile_image = forms.ImageField(label='Profile Image', required=False)
+
+class ProfilePictureForm(forms.ModelForm):
+    
+    class Meta:
+        model = ExtendedUser
+        fields = ['profileImage',]
