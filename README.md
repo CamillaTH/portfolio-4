@@ -5,7 +5,14 @@
 ## Deployment
 
 site is live at : https://portfolio-4-1ef2f7260848.herokuapp.com/
-postgresql-solid-43325
+
+## Frameworks
+
+* This application is using the python frameWork Django v3.2.21
+* Db is a postgresSql hosted on elephantsql.com
+* Site is deployed at heroku.com
+* jQuery is used as JS framwork
+* Boostrap is used as HTML/css framwork
 
 
 ## Features 

@@ -19,7 +19,8 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand me-lg-5 " href="">
-                <img src="{% static '/images/luna-logo_transparent.png' %}" class="logo-image img-fluid" alt="Luna-logo">
+                <!-- Logo hosted in cloudinary since heroku not finding static/images folder<img src="{% static '/images/luna-logo_transparent.png' %}" class="logo-image img-fluid" alt="Luna-logo"> -->
+                <img src="https://res.cloudinary.com/dccc1wpyc/image/upload/v1697581454/dkqnfhfgoghkodisr3qh.png" class="logo-image img-fluid" alt="Luna-logo">
             </a>
             <!-- search for posts work in progress--->
             <form action="#" method="get" class="search-form flex-fill me-3" role="search">
@@ -132,7 +133,8 @@
     
                 <div class="col-lg-4 col-12 order-lg-2 order-3">
                     <a class="navbar-brand" href="/">
-                        <img src="{% static '/images/luna-logo_transparent.png' %}" class="logo-image img-fluid" alt="Footer Luna Logo">
+                        <!-- Logo hosted in cloudinary since heroku not finding static/images folder<img src="{% static '/images/luna-logo_transparent.png' %}" class="logo-image img-fluid" alt="Footer Luna Logo"> -->
+                        <img src="https://res.cloudinary.com/dccc1wpyc/image/upload/v1697581454/dkqnfhfgoghkodisr3qh.png" class="logo-image img-fluid" alt="Footer Luna Logo">
                     </a>
                     <p class="mb-0 copy-right">Copyright © 2023 Luna</p>
                 </div>
