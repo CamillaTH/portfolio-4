@@ -229,3 +229,14 @@ ul {
 #login_form input {
   border-radius: 10px;
 }
+
+/*---------------------------------------
+  sign out       
+-----------------------------------------*/
+.signout-page button{
+  width: 370px;
+  margin-bottom: 15px;
+}
+.signout-page h1 {
+  color:#D4DCDE
+}
