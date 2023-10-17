@@ -157,6 +157,9 @@ ul {
 .like-container-detail i {
   padding-left: 15px;
 }
+#amount_of_likes {
+  color: #478d97;
+}
 
 
 /*---------------------------------------
@@ -174,8 +177,7 @@ ul {
   width: 100%;
 }
 .comment-text-content {
-  border-right: 1px solid #4B8D97;
-  border-left: 1px solid #4B8D97;
+  color:#478d97;
 }
 .textarea.form-control {
   font-size: 1.7rem;
@@ -277,3 +279,9 @@ ul {
   color:#D4DCDE;
 }
 
+/*---------------------------------------
+  Media querys for smaller screens   
+-----------------------------------------*/
+@media (max-width: 767px) {
+
+}
