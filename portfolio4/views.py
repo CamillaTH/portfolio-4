@@ -3,6 +3,7 @@ from .models import  Post, Comment, Category
 from .forms import PostForm, CommentForm
 from django.views import generic, View
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
 
 # Create your views here.
 
@@ -102,3 +103,8 @@ def like_comment(request, slug):
         comment.like_comment(request.user)
 
     return redirect('post_detail', slug=comment.post.slug)
+
+def handler404(request, exception):
+    '''handles 404 page'''
+
+    return render(request, '404.html', status=404)

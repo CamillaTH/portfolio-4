@@ -17,6 +17,7 @@ from . import views
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
+from portfolio4.views import handler404
 
 urlpatterns = [
     #path("", views.CategoryList.as_view(), name="category"),
@@ -27,6 +28,8 @@ urlpatterns = [
     path('comment/<slug:slug>/like/', views.like_comment, name='like_comment'),
     
 ]
+
+handler404 = handler404
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
