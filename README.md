@@ -52,10 +52,11 @@ Agile development was used during development of this site project board can be 
 ## Frameworks
 
 * This application is using the python frameWork Django v3.2.21
-* Db is a postgresSql hosted on elephantsql.com
-* Site is deployed at heroku.com
-* jQuery is used as JS framwork
-* Boostrap is used as HTML/css framwork
+* Db is a postgresSql hosted on elephantsql.com.
+* Site is deployed at heroku.com.
+* jQuery is used as JS framwork.
+* Boostrap is used as HTML/css framwork.
+* For image storage Cloudinary is used.
 
 
 ## Features 
