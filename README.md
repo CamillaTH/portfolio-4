@@ -2,6 +2,9 @@
 
 ![alt text](static/images/luna-logo_transparent.png)
 
+## Deployment
+
+site is live at : https://camillath.github.io/portfolio-2/
 
 ## Features 
 
@@ -54,3 +57,14 @@ __PRFOILE PAGE__
 Profile page where user can add/change thier profile picture. The form is using the framwork crispy forms.
 
 ![alt text](static/images/readme/luna_readme_profilepage.png)
+
+postgresql-solid-43325
+
+
+## Credits
+
+Inspiration taken from code insitutes rock papper scissors game made by code insitute.
+
+* For blinking effect this guide was used
+https://www.w3docs.com/snippets/css/how-to-create-a-blinking-effect-with-css3-animations.html
+* For to convert an png image to favicon (.ico format) 
