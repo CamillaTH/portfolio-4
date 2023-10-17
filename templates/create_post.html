@@ -16,9 +16,7 @@
                  </div>
                  <div class="row">
                      <form method="post" enctype="multipart/form-data">
-                         <!-- Override rendering for categories field -->
                              {% csrf_token %}
-                             <!--- Exlude crispy default categories --->
                              {{ post_form | crispy }}
                          <button type="submit">Add post</button>
                      </form>

@@ -8,33 +8,50 @@ from allauth.account.forms import ChangePasswordForm, SetPasswordForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib import messages
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
+from django.utils.text import slugify
+import datetime
 
 # Create your views here.
 
 
 def create_post(request):
-    post_form = PostForm()  # Define the form outside the if block
+    '''View for create post'''
+    post_form = PostForm()
 
     if request.method == 'POST':
         post_form = PostForm(request.POST)
-        if post_form.is_valid(): 
+        if post_form.is_valid():
             instance = post_form.save(commit=False)
             instance.author = request.user
+            instance.image = request.FILES['image']
+
+            # Generate a unique slug
+            base_slug = slugify(instance.heading)
+            unique_slug = base_slug
+            count = 1
+
+            while Post.objects.filter(slug=unique_slug).exists():
+                # Slug already exists, append a count to make it unique
+                count += 1
+                unique_slug = f'{base_slug}-{count}'
+
+            instance.slug = unique_slug
             instance.save()
-            return redirect('createpost')
+
+            return redirect('create_post')
 
     return render(request, 'create_post.html', {'post_form': post_form})
 
 
 class CategoryList(generic.ListView):
-    ''' '''
+    '''view for listing categories'''
     model = Category
     queryset = Category.objects.order_by('name')
     template_name = 'base.html'
     paginate_by = 10
 
 class PostList(generic.ListView):
-    ''' '''
+    '''view to show post in list '''
     model = Post
     queryset = Post.objects.order_by('creation_time')
     template_name = 'base.html'
@@ -50,7 +67,7 @@ def Home_items(request):
        return render(request, 'index.html', context)
 
 class CategoryDetail(View):
-    ''' '''
+    '''view to display category dettail Work in progress.... '''
     def get(self, request, slug, *args, **kwargs):
         queryset = Category.objects
         categories = get_object_or_404(queryset, slug=slug)

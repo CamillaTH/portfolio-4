@@ -4,12 +4,13 @@ from django.contrib.auth.forms import UserChangeForm
 
 
 class PostForm(forms.ModelForm):
+    '''form for post a post'''
     class Meta:
         model = Post
         fields = ['heading', 'content', 'categories', 'image']
 
 class CommentForm(forms.ModelForm):
-    #content = forms.CharField(widget=forms.Textarea)
+    '''form for comment'''
 
     class Meta:
         model = Comment
@@ -17,7 +18,7 @@ class CommentForm(forms.ModelForm):
 
 
 class ProfilePictureForm(forms.ModelForm):
-    
+    '''Form for profile picture'''
     class Meta:
         model = ExtendedUser
         fields = ['profileImage',]
