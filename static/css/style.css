@@ -13,7 +13,6 @@ footer {
 
 button {
   border-radius: 15px;
-  /*background-color: #D4DCDE;*/
   color: #4B8D97;
 }
 button:hover {
@@ -137,6 +136,12 @@ ul {
 
 .comment-wrapper {
   background-color: #4B8D97;
+}
+.comment-image {
+  border-top: 2px solid #4B8D97;
+}
+.comment-content-img {
+  max-height: 300px;
 }
 
 .post-category {

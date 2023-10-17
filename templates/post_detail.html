@@ -57,17 +57,28 @@
                                                                 {% if "placeholder" in comment.author.extendeduser.profileImage.url %}
                                                                     <img class="comment-profile-img" src="https://res.cloudinary.com/dccc1wpyc/image/upload/v1696540650/no-image-found_gbce8p.png" alt="comment-user-image"/>
                                                                 {% else %}
-                                                                    <img class="comment-profile-img" src="{{ comment.author.extendeduser.profileImage.url}}" alt="comment-user-profile-image" >
+                                                                    <img class="comment-profile-img" src="{{ comment.author.extendeduser.profileImage.url }}" alt="comment-user-profile-image" >
                                                                 {% endif %}
                                                             </div>
-                                                            <p class="small mb-0 ms-2 comment-text-content">{{ comment.content }}</p>
+                                                            <!--<p class="small mb-0 ms-2 comment-text-content">{{ comment.content }}</p>-->
                                                             <div class="d-flex flex-row align-items-center">
                                                                 <a href="{% url 'like_comment' slug=comment.slug %}"><i class="fa-regular fa-thumbs-up" id="like-comment-detail" style="color: #478d97;"></i></a>
                                                                 <!-- Shows amount of likes on a comment-->
                                                                 <p class="small mb-0" id="amount_of_likes">{{ comment.amount_of_likes }}</p>
-                                                            </div>
-                                                               
+                                                            </div> 
                                                         </div>
+                                                    </div>
+                                                    <div class="d-flex justify-content-between comment-image comment {% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">
+                                                        <div class="d-flex flex-row align-items-center">
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                    {% if not "placeholder" in comment.image.url %}
+                                                                        <img class="comment-content-img" src="{{ comment.image.url }}" alt="comment-image-url">
+                                                                    {% endif %}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <p class="small mb-0 ms-2 comment-text-content">{{ comment.content }}</p> 
                                                     </div>
                                             {% endfor %}
                                         </div>
