@@ -199,11 +199,33 @@ ul {
 /*---------------------------------------
   Register       
 -----------------------------------------*/
-.register {
+.register-page {
   background-color: #478d97;
   border-radius: 15px;
 }
+.register-page label, p {
+  color:#D4DCDE
+}
 
 #signup_form input {
+  border-radius: 10px;
+}
+#signup_form button {
+  width: 370px;
+}
+
+/*---------------------------------------
+  sign in       
+-----------------------------------------*/
+.login-page {
+  background-color: #478d97;
+}
+.login-page label, p{
+  color:#D4DCDE
+}
+#login_form button {
+  width: 370px;
+}
+#login_form input {
   border-radius: 10px;
 }
