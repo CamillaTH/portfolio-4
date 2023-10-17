@@ -7,6 +7,8 @@
 * site is live at : https://portfolio-4-1ef2f7260848.herokuapp.com/
 * To enter admin panel go to -> https://portfolio-4-1ef2f7260848.herokuapp.com/admin
 
+![alt text](static/images/readme/luna_readme_adminpanel.png)
+
 
 ### clone repository locally (HTTPS)
 
