@@ -99,9 +99,9 @@ TEMPLATES = [
 WSGI_APPLICATION = 'protfolio4_django.wsgi.application'
 
 
-# local Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# local Database
 #DATABASES = {
 #    'default': {
 #       'ENGINE': 'django.db.backends.sqlite3',
