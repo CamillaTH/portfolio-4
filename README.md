@@ -7,6 +7,7 @@
 * site is live at : https://portfolio-4-1ef2f7260848.herokuapp.com/
 * To enter admin panel go to -> https://portfolio-4-1ef2f7260848.herokuapp.com/admin
 
+
 ### clone repository locally (HTTPS)
 
 * Navigate to the repository (https://github.com/CamillaTH/portfolio-2)
@@ -38,6 +39,11 @@ And comment out
      'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
  }
  
+## Agile
+
+Agile development was used during development of this site project board can be found :
+* https://github.com/users/CamillaTH/projects/4/views/1
+
 ## Frameworks
 
 * This application is using the python frameWork Django v3.2.21
