@@ -12,11 +12,11 @@
 
 ### clone repository locally (HTTPS)
 
-* Navigate to the repository (https://github.com/CamillaTH/portfolio-2)
+* Navigate to the repository (https://github.com/CamillaTH/portfolio-4)
 * Click on the button "code".
 * Choose "HTTPS" and copy the URL.
 * Choose a local directory where want to clone the repository.
-* Open terminal at the location you want the repository and write "git clone https://github.com/CamillaTH/portfolio-2.git" and press enter.
+* Open terminal at the location you want the repository and write "git clone https://github.com/CamillaTH/portfolio-4.git" and press enter.
 
 ![alt text](static/images/readme/luna_readme_clonereporeadme.png)
 
